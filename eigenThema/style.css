@@ -1,0 +1,24 @@
+/*
+Theme Name: Robbe's thema
+Author: Robbe van der Lee, MD1A
+Version: 1.0 
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+a {
+    color: #fafafa;
+}
+header{
+    background-color: #fafafa;
+    color: #fff;
+}
+footer{
+    background-color: #fafafa;
+    color: #fff;
+}
