@@ -12,9 +12,10 @@
 
    
             <article class="bericht">
-                    <a href="<?php the_permalink()?>" target="_blank" rel="noopener noreferrer"><h2><?php the_title() ?> </h2></a>
+                    <?php the_title() ?> </h2>
                     <?php the_content() ?>
             </article>
+
             <?php
             endwhile;
             else : 
@@ -22,8 +23,16 @@
             endif; 
             //einde van de wordpress loop.
             ?>
+            <div class="postMeta">
+                Geplaatst door:
+                <?php the_author(); ?>
+                op:
+                <?php the_date(); ?>
+                In de categorie:
+                <?php the_category(); ?>
             </div>
-
+            </div>
+            
             <aside class="sidebar">
                 <?php dynamic_sidebar('widget_aside'); ?>
             </aside>

@@ -12,8 +12,8 @@
 
    
             <article class="bericht">
-                    <a href="<?php the_permalink()?>" target="_blank" rel="noopener noreferrer"><h2><?php the_title() ?> </h2></a>
-                    <?php the_content() ?>
+                <h2><?php the_title() ?></h2>
+                <?php the_content() ?>
             </article>
             <?php
             endwhile;

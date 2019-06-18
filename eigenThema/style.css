@@ -4,21 +4,158 @@ Author: Robbe van der Lee, MD1A
 Version: 1.0 
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+/* general body */ 
+    body {
+        font-family: 'Roboto Mono', monospace;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+/* general link */    
+    a {
+        color: #fafafa;
+    }
+/* header */
+    header{
+        background-color: #fafafa;
+        color: #fff;
+        background-size: cover;
+        background-position: center center;
+        min-height: 20vw;
+    }
+/* nav style */
+    nav{
+        margin-left: -2em;
+        margin-right: -2em;
+        margin-top: -2em;
+    }
+        nav .menu {
+            list-style-type: none;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.1em;
+        }
+            nav a.menu {
+                padding: .5em 2em;
+                background-color: #fafafa;
+                border-bottom: 1px solid black;
+            }
+                nav a.menu::hover {
+                    background-color: black;
+                }
+            nav .menu .current-menu-item a {
+                background-color: #fafafa;
+                border-right: .3em solid black;
+            }
+/* submenu */
+    .sub-menu{
+        list-style-type: none;
+        margin: 0;
+        padding-left: 1em;
+    }
+        .sub-menu * {
+            transition: all .5s ease-out;
+        }
+        .sub-menu.menu-hide {
+            height: 0;
+            font-size: 0;
+            line-height: 0;
+            padding: 0;
+            border-width: 0;
+        }
 
-body {
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    padding: 0;
-    display: flex;
+    .menu-item-has-childeren>a.menu-open {
+        padding-top: .25em;
+    }
+        .menu-item-has-childeren a::before {
+            content: '\25BC';
+            margin-right: 2em;
+        }
+            .menu-item-has-childeren>a.menu-open::before {
+                content: '\25B2';
+                margin-right: 2em;
+            }
+
+    .sub-menu a{
+        border-left: 1em solid black;
+    }
+
+    aside h4 { 
+        color: black;
+    }
+
+    .screen-reader-text{
+        display: none;
+    }
+
+/*container */
+.container img{
+    max-width: 100%;
+}   
+
+/*bericht */
+.bericht {
+    border-bottom: 6px dotted #fafafa;
 }
-a {
-    color: #fafafa;
+    .bericht:last-of-type {
+    border-bottom: 0;
+    }
+
+.postMeta {
+    font-size: .8em;
+    color: #aaaaaa;
 }
-header{
-    background-color: #fafafa;
-    color: #fff;
-}
+    .postMeta a {
+        color: #aaaaaa;
+    }
+        .postMeta a:hover{
+            color: black;
+        }
+    .postMeta ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: inline;
+    }
+        .postMeta li {
+            display: inline;
+        }
+        .postMeta li::after {
+            content: " | ";
+        }
+
+/*footer*/
 footer{
     background-color: #fafafa;
     color: #fff;
 }
+
+@media screen and (min-width: 800px){
+    nav ul.menu {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        border-left: 1px solid black;
+    }
+        nav ul.menu a { 
+            border-right: 1px solid black;
+        }
+        nav #menu-extra-menu a {
+            font-size: .8em;
+        }
+    .sub-menu {
+        position: absolute;
+    }
+/*main opmaak */
+    main {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+        aside {
+            border-right: 1px solid black;
+            margin-right: -2em;
+        }
+}
+
