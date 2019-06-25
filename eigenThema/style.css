@@ -4,158 +4,111 @@ Author: Robbe van der Lee, MD1A
 Version: 1.0 
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-/* general body */ 
-    body {
-        font-family: 'Roboto Mono', monospace;
-        margin: 0;
-        padding: 0;
-        display: flex;
+
+/* some general styling everybody loves */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    color: #000;
+}
+
+    html, body {
+        background: #fafafa;
+        width: 100%;
     }
-/* general link */    
+
+    ul, ol, li {
+        list-style-type: none;
+    }
+
     a {
-        color: #fafafa;
+        text-decoration: none;
+        transition: color 100ms ease;
     }
-/* header */
-    header{
-        background-color: #fafafa;
-        color: #fff;
-        background-size: cover;
-        background-position: center center;
-        min-height: 20vw;
-    }
-/* nav style */
-    nav{
-        margin-left: -2em;
-        margin-right: -2em;
-        margin-top: -2em;
-    }
-        nav .menu {
-            list-style-type: none;
-            text-decoration: none;
-            padding: 0;
-            margin: 0;
-            font-size: 1.1em;
+
+        a:hover {
+            color: #d7d9f7;
         }
-            nav a.menu {
-                padding: .5em 2em;
-                background-color: #fafafa;
-                border-bottom: 1px solid black;
-            }
-                nav a.menu::hover {
-                    background-color: black;
-                }
-            nav .menu .current-menu-item a {
-                background-color: #fafafa;
-                border-right: .3em solid black;
-            }
-/* submenu */
-    .sub-menu{
-        list-style-type: none;
-        margin: 0;
-        padding-left: 1em;
-    }
-        .sub-menu * {
-            transition: all .5s ease-out;
-        }
-        .sub-menu.menu-hide {
-            height: 0;
-            font-size: 0;
-            line-height: 0;
-            padding: 0;
-            border-width: 0;
-        }
+ /* grid definition */
 
-    .menu-item-has-childeren>a.menu-open {
-        padding-top: .25em;
-    }
-        .menu-item-has-childeren a::before {
-            content: '\25BC';
-            margin-right: 2em;
-        }
-            .menu-item-has-childeren>a.menu-open::before {
-                content: '\25B2';
-                margin-right: 2em;
-            }
-
-    .sub-menu a{
-        border-left: 1em solid black;
-    }
-
-    aside h4 { 
-        color: black;
-    }
-
-    .screen-reader-text{
-        display: none;
-    }
-
-/*container */
-.container img{
-    max-width: 100%;
-}   
-
-/*bericht */
-.bericht {
-    border-bottom: 6px dotted #fafafa;
+body {
+    display: grid;
+    grid-template-areas: "nav nav nav nav" "header header header header" "main main . aside" "footer footer footer footer";
 }
-    .bericht:last-of-type {
-    border-bottom: 0;
+    .header {
+        grid-area:nav;
+    }
+    main {
+        grid-area:main;
+    }
+    aside {
+        grid-area:aside;
+    }
+    footer {
+        grid-area:footer;
     }
 
-.postMeta {
-    font-size: .8em;
-    color: #aaaaaa;
+/* header styling right here yo */
+.header {
+    width: 100%;
+    padding: 2em 10em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background: #d7d9f7;
+    box-shadow: 0 0 8px -6px #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
-    .postMeta a {
-        color: #aaaaaa;
+    .header__title::hover {
+        color: #8d72af;
     }
-        .postMeta a:hover{
-            color: black;
-        }
-    .postMeta ul{
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: inline;
-    }
-        .postMeta li {
-            display: inline;
-        }
-        .postMeta li::after {
-            content: " | ";
-        }
+/* aside styling */
+aside {
+    margin-top: 20px;
+    width: 100%;
+    height: 500px;
+    background: #7295af;
+    box-shadow: 0 3px 8px -6px #000;
+    padding: 2em;
+}
 
-/*footer*/
-footer{
-    background-color: #fafafa;
+    aside ul {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+    }
+/* post styling */
+
+.posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .post {
+    padding: 2em 4em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    }
+
+        .post h2 {
+            margin-bottom: 10px;
+        }
+/* footer styling */
+footer {
+    width: 100%;
+    padding: 2em 10em;
+    display: flex;
+    flex-direction: column;
+    background: #d7d9f7;
     color: #fff;
 }
-
-@media screen and (min-width: 800px){
-    nav ul.menu {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        border-left: 1px solid black;
-    }
-        nav ul.menu a { 
-            border-right: 1px solid black;
-        }
-        nav #menu-extra-menu a {
-            font-size: .8em;
-        }
-    .sub-menu {
-        position: absolute;
-    }
-/*main opmaak */
-    main {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-    }
-        aside {
-            border-right: 1px solid black;
-            margin-right: -2em;
-        }
-}
-
